@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+
+//导入方法
+@import "var";
+
+//导入方法
+@import "fun";
+
+
+//导入自定义组件
+@import "widget";
+
+
+.content{
+
+  padding-top: 100px;
+  min-height: 1000px;
+}
+
+
+.ib{
+  display: inline-block;
+  vertical-align: middle;
+}

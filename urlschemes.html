@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>url</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+
+
+    //用来检测app 是否安装 如果安装则打开  否则进入下载
+    <button onclick="go();">点击开始</button>
+</body>
+
+</html>
+
+
+            <script language="javascript">
+
+
+                function ajaxJump(url){
+                    $.ajax({
+                        type : "get",
+                        url  : url,
+                        success: function(){
+                            alert("yes");
+                        },
+                        error : function(){
+                            alert("error");
+                        }
+                    });
+
+//                    $.get(url,{},function(){
+//                        alert("yes");
+//                    },function(){
+//                        alert("error");
+//                    })
+
+                }
+
+
+                function go(){
+
+                    /** ios **/
+                    if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+                        var loadDateTime = new Date();
+//                        //如果5s内本机打不开
+//                        window.setTimeout(function() {
+//                                    var timeOutDateTime = new Date();
+//                                    if (timeOutDateTime - loadDateTime < 5000) {
+//                                        window.location = "www.baidu.com";
+//                                    } else {
+//                                        window.close();
+//                                    }
+//                                },
+//                         25);
+
+
+//                        ajaxJump("itms-apps://itunes.apple.com/cn/app/qq-2011/id444934666?mt=8";);
+
+                        //已经打开
+                        window.location = "itms-apps://itunes.apple.com/cn/app/qq-2011/id444934666?mt=8";
+                    }
+//            /** android **/
+//            else if (navigator.userAgent.match(/android/i)) {
+//                var state = null;
+//                try {
+//                    state = window.open("apps custom url schemes ", '_blank');
+//                } catch(e) {}
+//                if (state) {
+//                    window.close();
+//                } else {
+//                    window.location = "要跳转的页面URL";
+//                }
+//            }
+
+
+                }
+
+
+                // http://blog.csdn.net/yongyinmg/article/details/24333313
+                //
+
+        </script>
