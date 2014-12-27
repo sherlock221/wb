@@ -1,9 +1,11 @@
 jboss
 
-    .controller("AuditClassCtrl", function ($rootScope,$scope, $window, $log, $q, $timeout, AuditService) {
+    .controller("AuditSchoolCtrl", function ($rootScope,$scope, $window, $log, $q, $timeout, AuditService) {
+
+
 
         //显示tab
-        $rootScope.changeTab("audit",1);
+        $rootScope.changeTab("audit",0);
 
         //查询班级
         var loadList = function (schoolId) {

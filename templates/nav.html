@@ -1,6 +1,8 @@
 
-<ul class="nav nav-stacked navbar-default " role="tablist">
-    <li role="presentation" class="active"><a href="#">删除用户</a></li>
-    <li role="presentation" class=""><a href="#">测试用户</a></li>
-    <li role="presentation" class=""><a href="#">测试用户</a></li>
+<ul class="nav nav-pills nav-stacked" role="tablist" ng-controller="tabCtrl">
+
+    <li role="presentation"  ng-class="{'active' : tab.isActived}"  ng-repeat="tab in $root.tabs ">
+        <a href="{{tab.url}}">{{tab.name}}</a>
+    </li>
 </ul>
+

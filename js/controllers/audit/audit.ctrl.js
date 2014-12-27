@@ -1,6 +1,6 @@
 jboss
 
-    .controller("AuditCtrl", function ($rootScope,$scope,$window,$log,$q,$timeout) {
+    .controller("AuditCtrl", function ($rootScope,$scope,$window,$log,$q,$timeout,BaseService) {
 
 
         //表单数据
@@ -13,18 +13,39 @@ jboss
 
 
         //是否显示新信息
-        $rootScope.isMsgShow = false;
+        $scope.isMsgShow = false;
+
+        //省数据
+        $scope.provices =[];
+
+
+        $scope.titles = [
+            {title: 'Amazing Grace', type: 'movie'},
+            {title: 'Amazing Grace', type: 'song'}
+        ];
+
+        $scope.label = function(item) {
+            return item.title + ' (' + item.type + ')';
+        };
+
+
+
+        BaseService.getArea().then(function(res){
+            $scope.provices = res;
+        }).then(function(err){
+            console.log(err);
+        });
 
 
         //修改学校
         this.updateSchool = function(){
-            $rootScope.isMsgShow = false;
+            $scope.isMsgShow = false;
         }
 
 
         //显示学校
         this.showSchool = function(){
-            $rootScope.isMsgShow = true;
+            $scope.isMsgShow = true;
         }
 
     });

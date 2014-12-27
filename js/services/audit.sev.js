@@ -6,6 +6,7 @@ jboss
 
         return {
 
+
             //获得用户创建的班级
             getUserClass: function (schoolId) {
                 var defer = $q.defer();

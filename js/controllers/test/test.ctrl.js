@@ -2,7 +2,8 @@ jboss
 
     .controller("TestCtrl", function ($rootScope,$scope,$window,$log,$q,$timeout,MessageService) {
 
-        console.log("test...");
+
+
 
         //列表
         $scope.posts = [];
