@@ -13,6 +13,12 @@
 
                 <div class="panel-body auditPanel">
 
+                    <style type="text/css">
+                        .dropdown-menu{
+                            display: block !important;
+                        }
+                    </style>
+
                     <!--修改信息-->
                     <section class="changeMsg" ng-hide="isMsgShow">
 
@@ -23,32 +29,30 @@
                                  <label for="provice" class="col-sm-2 control-label">第一步 输入省</label>
 
                                  <div class="col-sm-10">
-                                     <!--<input type="text" class="form-control" id="provice" name="provice" required  ng-model="fm.provice" typeahead="pro for pro in provices" />-->
-                                     <input type="text" ng-model="selected"     typeahead="item as label(item) for item in titles | filter:{title:$viewValue}"  class="form-control">
-
-
+                                 <!--<input type="text" id="provice"  ng-model="fm.provice"    name="provice"  typeahead-on-select="selectProvice"    typeahead="pro  for pro in provices | filter:$viewValue | limitTo:8 "  class="form-control">-->
+                                     <input select-address  p="p" c="c" a="a" d="d" ng-model="xxx" placeholder="请选择所在地" type="text" class="form-control" />
 
                                  </div>
                              </div>
 
-                        <div class="form-group">
-                            <label for="city" class="col-sm-2 control-label">第二步 输入市</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="city"  name="city" required ng-model="fm.city" />
-                            </div>
-                        </div>
+                        <!--<div class="form-group">-->
+                            <!--<label for="city" class="col-sm-2 control-label">第二步 输入市</label>-->
+                            <!--<div class="col-sm-10">-->
+                                <!--<input type="text" class="form-control" id="city"  name="city" required ng-model="fm.city" />-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="form-group">-->
+                            <!--<label for="area" class="col-sm-2 control-label">第三步 输入区</label>-->
+                            <!--<div class="col-sm-10">-->
+                                <!--<input type="text" class="form-control" id="area"  name="area" required ng-model="fm.area"/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
 
                         <div class="form-group">
-                            <label for="area" class="col-sm-2 control-label">第三步 输入区</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="area"  name="area" required ng-model="fm.area"/>
-                            </div>
-                        </div>
 
-
-                        <div class="form-group">
-
-                            <label for="area" class="col-sm-2 control-label">第三步 输入区</label>
+                            <label for="area" class="col-sm-2 control-label">第二步 选择学校</label>
                             <div class="col-sm-10">
                                 <select class="form-control">
                                     <option>学校01</option>

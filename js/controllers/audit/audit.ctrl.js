@@ -17,20 +17,11 @@ jboss
 
         //省数据
         $scope.provices =[];
-
-
-        $scope.titles = [
-            {title: 'Amazing Grace', type: 'movie'},
-            {title: 'Amazing Grace', type: 'song'}
-        ];
-
-        $scope.label = function(item) {
-            return item.title + ' (' + item.type + ')';
-        };
-
+        $scope.citys = [];
 
 
         BaseService.getArea().then(function(res){
+
             $scope.provices = res;
         }).then(function(err){
             console.log(err);
@@ -46,6 +37,10 @@ jboss
         //显示学校
         this.showSchool = function(){
             $scope.isMsgShow = true;
+        }
+
+        this.selectProvice = function($item, $model, $label){
+            console.log($item);
         }
 
     });
