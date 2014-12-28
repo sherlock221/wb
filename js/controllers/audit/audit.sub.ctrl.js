@@ -7,7 +7,7 @@ jboss
 
         //查询班级
         var loadList = function (schoolId) {
-            AuditService.getUserClass(schoolId).then(function (res) {
+            AuditService.getUserSubject(schoolId).then(function (res) {
 
                 if(res.rtnCode != "0000000"){
                     alert(res.msg);
@@ -21,10 +21,19 @@ jboss
             });
         }
 
+
         //自动查询
-        var schoolId = $scope.fm.schoolId;
+        var schoolId = $scope.$parent.fm.school.schoolId;
         if(schoolId){
-            loadList();
+            loadList(schoolId);
         }
+
+        //监听父类变化
+        $scope.$parent.$watch("isMsgShow",function(res){
+            if($scope.$parent.fm.school){
+                loadList($scope.$parent.fm.school.schoolId);
+            }
+
+        });
 
     });

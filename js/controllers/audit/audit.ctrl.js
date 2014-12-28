@@ -1,16 +1,15 @@
 jboss
 
-    .controller("AuditCtrl", function ($rootScope,$scope,$window,$log,$q,$timeout,BaseService) {
+    .controller("AuditCtrl", function ($rootScope,$scope,$state,$window,$log,$q,$timeout,BaseService) {
+
 
 
         //表单数据
         $scope.fm = {
-            provice : "",
-            area  : "",
-            city : "",
-            schoolId : ""
+            areaId   : "",
+            address : "",
+            school : ""
         }
-
 
         //是否显示新信息
         $scope.isMsgShow = false;
@@ -20,11 +19,27 @@ jboss
         $scope.citys = [];
 
 
-        BaseService.getArea().then(function(res){
+        //学校数据
+        $scope.schools = [];
 
-            $scope.provices = res;
-        }).then(function(err){
-            console.log(err);
+        $scope.showSecond = false;
+
+        //加载学校
+        $scope.$watch('fm.areaId', function(areaId) {
+            console.log("area...");
+            if(areaId){
+                $scope.showSecond = true;
+                BaseService.getSchool(areaId).then(function(res){
+                    $scope.schools = res.bizData;
+
+                },function(err){
+                    console.log(err);
+                });
+            }
+            else{
+                $scope.showSecond = false;
+            }
+
         });
 
 
@@ -37,7 +52,9 @@ jboss
         //显示学校
         this.showSchool = function(){
             $scope.isMsgShow = true;
+                        
         }
+
 
         this.selectProvice = function($item, $model, $label){
             console.log($item);

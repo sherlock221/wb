@@ -7,7 +7,6 @@ var jboss = angular.module("jboss", [
 //启动配置
 jboss.run(function () {
     console.log("run....");
-
 });
 
 
@@ -87,7 +86,7 @@ jboss.config(function ($stateProvider, $urlRouterProvider) {
 //常量配置
 jboss.constant("SERVER", {
     url : {
-        uc  : "",
+        uc  : "http://10.10.68.11:8080/v1",
         message : "",
         boss  : ""
     }

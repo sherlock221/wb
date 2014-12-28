@@ -1,15 +1,18 @@
 jboss
 
-    .controller("AuditSchoolCtrl", function ($rootScope,$scope, $window, $log, $q, $timeout, AuditService) {
-
+    .controller("AuditSchoolCtrl", function ($rootScope,$scope, $window, $log, $q, $timeout, BaseService) {
 
 
         //显示tab
         $rootScope.changeTab("audit",0);
 
+
+
         //查询班级
-        var loadList = function (schoolId) {
-            AuditService.getUserClass(schoolId).then(function (res) {
+        var loadList = function () {
+
+            //查询全部学校
+            BaseService.getSchool().then(function (res) {
 
                 if(res.rtnCode != "0000000"){
                     alert(res.msg);
@@ -21,12 +24,10 @@ jboss
             }, function (err) {
                 alert(err);
             });
+
+
         }
 
-        //自动查询
-        var schoolId = $scope.fm.schoolId;
-        if(schoolId){
             loadList();
-        }
 
     });

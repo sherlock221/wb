@@ -11,8 +11,10 @@ jboss
             getUserClass: function (schoolId) {
                 var defer = $q.defer();
                 $http.get(SERVER.url.uc + "/school/getUserCustomClass", {
-                    data: {
-                        schoolId : schoolId
+                    params: {
+                        schoolId : schoolId,
+                        areaId  : "",
+                        status  : ""
                     }
                 })
                     .success(function (result) {
@@ -31,8 +33,10 @@ jboss
             getUserSubject: function (schoolId) {
                 var defer = $q.defer();
                 $http.get(SERVER.url.uc + "/school/getUserCustomSubject",{
-                    data: {
-                        schoolId : schoolId
+                    params: {
+                        schoolId : schoolId,
+                        areaId  : "",
+                        status  : ""
                     }
                 })
                     .success(function (result) {

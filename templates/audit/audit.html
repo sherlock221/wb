@@ -26,40 +26,24 @@
                          <form class="form-horizontal" name="updateForm"   novalidate>
 
                              <div class="form-group">
-                                 <label for="provice" class="col-sm-2 control-label">第一步 输入省</label>
+                                 <label  class="col-sm-2 control-label">第一步 输入省</label>
 
                                  <div class="col-sm-10">
-                                 <!--<input type="text" id="provice"  ng-model="fm.provice"    name="provice"  typeahead-on-select="selectProvice"    typeahead="pro  for pro in provices | filter:$viewValue | limitTo:8 "  class="form-control">-->
-                                     <input select-address  p="p" c="c" a="a" d="d" ng-model="xxx" placeholder="请选择所在地" type="text" class="form-control" />
-
+                                     <input select-address     ng-model="fm.address"  p="proviceName" c="cityName" a="districtName" d="d"   placeholder="请选择所在地" type="text" class="form-control"  required/>
+                                     <input type="hidden"      ng-model="fm.areaId"  id="areaId" />
                                  </div>
                              </div>
 
-                        <!--<div class="form-group">-->
-                            <!--<label for="city" class="col-sm-2 control-label">第二步 输入市</label>-->
-                            <!--<div class="col-sm-10">-->
-                                <!--<input type="text" class="form-control" id="city"  name="city" required ng-model="fm.city" />-->
-                            <!--</div>-->
-                        <!--</div>-->
-
-                        <!--<div class="form-group">-->
-                            <!--<label for="area" class="col-sm-2 control-label">第三步 输入区</label>-->
-                            <!--<div class="col-sm-10">-->
-                                <!--<input type="text" class="form-control" id="area"  name="area" required ng-model="fm.area"/>-->
-                            <!--</div>-->
-                        <!--</div>-->
 
 
-                        <div class="form-group">
+                        <div class="form-group" ng-show="showSecond">
 
-                            <label for="area" class="col-sm-2 control-label">第二步 选择学校</label>
+                            <label for="" class="col-sm-2 control-label">第二步 选择学校</label>
                             <div class="col-sm-10">
-                                <select class="form-control">
-                                    <option>学校01</option>
-                                    <option>学校01</option>
-                                    <option>学校01</option>
-                                    <option>学校01</option>
+                                <select  ng-options="m.schoolName for m in schools" class="form-control" ng-model="fm.school" required>
+                                    <option value="">-- 请选择 --</option>
                                 </select>
+
                             </div>
 
                         </div>
@@ -73,17 +57,16 @@
                         </div>
 
 
-
                     </form>
                     </section>
 
 
                     <!-- 显示信息 -->
-                    <section class="showMsg" ng-show="isMsgShow">
+                    <section class="showMsg" ng-show="isMsgShow" >
 
-                        <h5 class="ib">陕西省</h5>
-                        <h5 class="ib">西安市</h5>
-                        <h5 class="ib">莲湖区</h5>
+                        <h5 class="ib">{{fm.address}}</h5>
+                        <h5 class="ib">{{fm.school.schoolName}}</h5>
+
                         <button  class="ib btn btn-danger btn-sm" ng-click="audit.updateSchool();">修改学校</button>
                     </section>
 
