@@ -10,26 +10,32 @@
             <th>
                 用户名
             </th>
-            <th>
-                班级名称
-            </th>
+
             <th>
                 学校名称
             </th>
             <th>
                 审核状态
             </th>
+            <th>
+                操作
+            </th>
         </tr>
     </thead>
 
     <tbody>
-        <tr ng-repeat="res in results">
-            <td>{{res.classId}}</td>
+        <tr ng-repeat="res in results" ng-click="selectSchool(res);">
+            <td>{{res.schoolId}}</td>
             <td>{{res.phone}}</td>
             <td>{{res.userName}}</td>
-            <td>{{res.className}}</td>
+
             <td>{{res.schoolName}}</td>
-            <td>{{res.status}}</td>
+
+            <td >{{res.status | status}}</td>
+
+            <td ng-if="res.status == 1">
+                <button class="btn btn-sm btn-success">通过</button>
+            </td>
         </tr>
     </tbody>
 </table>

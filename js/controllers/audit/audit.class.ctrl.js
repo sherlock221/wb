@@ -6,8 +6,6 @@ jboss
 
 
 
-
-
         //显示tab
         $rootScope.changeTab("audit",1);
 
