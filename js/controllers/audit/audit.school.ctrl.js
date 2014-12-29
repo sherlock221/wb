@@ -1,42 +1,46 @@
 jboss
 
-    .controller("AuditSchoolCtrl", function ($rootScope,$scope, $window, $log, $q, $timeout, BaseService) {
+    .controller("AuditSchoolCtrl", function ($rootScope,$scope, $window, $log, $q, $timeout,AuditService) {
 
+        console.log("school...")
+
+
+        $scope.$parent.isSchool = true;
 
         //显示tab
         $rootScope.changeTab("audit",0);
 
-
-
         //查询班级
-        var loadList = function () {
+        var loadList = function (data) {
+
+           var  areaId = data.areaId || "";
+
+
 
             //查询全部学校
-            BaseService.getSchool().then(function (res) {
+            AuditService.getSchool(areaId).then(function (res) {
                 if(res.rtnCode != "0000000"){
                     alert(res.msg);
                 }
                 else{
+
                     $scope.results = res.bizData;
+
                 }
 
+
             }, function (err) {
-                alert(err);
+                alert("服务器连接失败!");
             });
 
-
         }
 
-        loadList();
+        //接受来自audit的事件
+        $scope.$on("audit-child",function(event,data){
+            console.log("子id : ",data);
+            loadList(data);
+        });
 
 
-        //选择学校
-        $scope.selectSchool = function(school){
-            $scope.$parent.fm.school = school;
-            $scope.$parent.fm.areaId = school.areaId;
-            $scope.$parent.fm.address = school.area;
-
-            $scope.$parent.isMsgShow = true;
-        }
-
+        loadList({});
     });

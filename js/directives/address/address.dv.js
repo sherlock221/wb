@@ -123,7 +123,8 @@ jboss.directive('selectAddress', function($http, $q, $compile,BaseService) {
                     scope.c = null;
                     scope.a = null;
 
-                    scope.$parent.fm.areaId = "";
+                    scope.$parent.fm.areaId = -1;
+
                     return scope.d = null;
                 };
                 scope.submit = function() {

@@ -1,6 +1,7 @@
 var jboss = angular.module("jboss", [
     'ui.router',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'frapontillo.bootstrap-switch'
 ]);
 
 
@@ -22,7 +23,6 @@ jboss.config(function ($stateProvider, $urlRouterProvider) {
         .state("home", {
             url: "/home",
             abstract : true,
-
             templateUrl: "templates/home.html",
             controller: "HomeCtrl as home"
         })
@@ -44,11 +44,10 @@ jboss.config(function ($stateProvider, $urlRouterProvider) {
             }
         })
 
-
         //审核学校
         .state("home.audit.school",{
-                url : "/school",
-                templateUrl : "templates/audit/audio_school.html",
+                 url : "/school",
+                 templateUrl : "templates/audit/audio_school.html",
                  controller : "AuditSchoolCtrl"
         })
 
@@ -87,6 +86,7 @@ jboss.config(function ($stateProvider, $urlRouterProvider) {
 jboss.constant("SERVER", {
     url : {
         uc  : "http://10.10.68.11:8080/v1",
+//        uc  : "./data",
         message : "",
         boss  : ""
     }

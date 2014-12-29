@@ -33,29 +33,10 @@ jboss
 
 
                 return  defer.promise;
-            },
-
-
-            //获得学校
-            getSchool: function (areaId) {
-                areaId = areaId || "";
-                var defer = $q.defer();
-                $http.get(SERVER.url.uc+"/school/getUserCustomSchool", {
-                    params: {
-                        areaId: areaId,
-                        schoolId : "",
-                        status  : ""
-                    }
-                })
-                    .success(function (res) {
-                        defer.resolve(res);
-                    })
-                    .error(function (err) {
-                        defer.reject(err);
-                    });
-
-                    return defer.promise;
             }
+
+
+
 
         }
 

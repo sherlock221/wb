@@ -13,54 +13,52 @@
 
                 <div class="panel-body auditPanel">
 
-                    <style type="text/css">
-                        .dropdown-menu{
-                            display: block !important;
-                        }
-                    </style>
-
                     <!--修改信息-->
                     <section class="changeMsg" ng-hide="isMsgShow">
+                        <form class="form-horizontal" name="updateForm"   novalidate>
+                            <div class="form-group">
 
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label  class="col-sm-3 control-label tl">选择地区</label>
+                                        <div class="col-sm-9">
+                                            <input select-address     ng-model="fm.address"  p="proviceName" c="cityName" a="districtName" d="d"   placeholder="请选择所在地" type="text" class="form-control"  required/>
+                                            <input type="hidden"  ng-bind="fm.areaId"     id="areaId"  />
+                                        </div>
 
-                         <form class="form-horizontal" name="updateForm"   novalidate>
+                                    </div>
 
-                             <div class="form-group">
-                                 <label  class="col-sm-2 control-label">第一步 输入省</label>
+                                    <div class="col-sm-6" ng-hide="isSchool">
+                                        <label  class="col-sm-3 control-label tl">选择学校</label>
+                                        <div class="col-sm-9">
+                                            <select  ng-options="m.schoolName for m in schools" class="form-control" ng-model="fm.school" required>
+                                                <option value="">-- 全部学校 --</option>
+                                            </select>
 
-                                 <div class="col-sm-10">
-                                     <input select-address     ng-model="fm.address"  p="proviceName" c="cityName" a="districtName" d="d"   placeholder="请选择所在地" type="text" class="form-control"  required/>
-                                     <input type="hidden"      ng-model="fm.areaId"  id="areaId" />
-                                 </div>
-                             </div>
+                                        </div>
 
+                                    </div>
 
-
-                        <div class="form-group" ng-show="showSecond">
-
-                            <label for="" class="col-sm-2 control-label">第二步 选择学校</label>
-                            <div class="col-sm-10">
-                                <select  ng-options="m.schoolName for m in schools" class="form-control" ng-model="fm.school" required>
-                                    <option value="">-- 请选择 --</option>
-                                </select>
+                                </div>
 
                             </div>
 
-                        </div>
+                            <!--<div class="form-group" ng-show="showSecond">-->
 
 
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button class="btn btn-primary" type="button"  ng-click="audit.showSchool();"  ng-disabled="updateForm.$invalid">完成</button>
-                            </div>
-
-                        </div>
+                            <!--</div>-->
 
 
-                    </form>
+                            <!--<div class="form-group">-->
+                            <!--<div class="col-sm-offset-2 col-sm-10">-->
+                            <!--<button class="btn btn-primary" type="button"  ng-click="audit.showSchool();"  ng-disabled="updateForm.$invalid">完成</button>-->
+                            <!--</div>-->
+
+                            <!--</div>-->
+
+
+                        </form>
                     </section>
-
-
                     <!-- 显示信息 -->
                     <section class="showMsg" ng-show="isMsgShow" >
 
@@ -71,7 +69,17 @@
                     </section>
 
 
-                    <section ui-view></section>
+
+
+
+
+
+
+                    <!-- 表单 -->
+                    <section ui-view>
+
+
+                    </section>
                 </div>
 
 

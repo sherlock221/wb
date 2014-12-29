@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/** 导入变量 **/
+/** 瀵煎叆鍙橀噺 **/
 .spinner {
   width: 150px;
   text-align: center; }
@@ -43,5 +43,8 @@
 .ib {
   display: inline-block;
   vertical-align: middle; }
+
+.tl {
+  text-align: left !important; }
 
 /*# sourceMappingURL=base.css.map */

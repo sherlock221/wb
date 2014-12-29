@@ -8,7 +8,8 @@
         "schoolName": "XX学校",
         "schoolId": 123123,
         "className": "XX班",
-        "classId": 123123,
+         "subjectName" : "数学",
+        "subjectId": 123123,
         "status": 0
     }]
 }

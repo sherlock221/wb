@@ -1,14 +1,19 @@
 jboss
 
     .controller("AuditSubjectCtrl", function ($rootScope,$scope, $window, $log, $q, $timeout, AuditService) {
-
         //显示tab
         $rootScope.changeTab("audit",2);
 
-        //查询班级
-        var loadList = function (schoolId) {
-            AuditService.getUserSubject(schoolId).then(function (res) {
 
+        $scope.$parent.isSchool = false;
+
+
+        //查询班级
+        var loadList = function (data) {
+            var schoolId = data.schoolId || "";
+            var  areaId = data.areaId || "";
+
+            AuditService.getUserSubject(areaId,schoolId).then(function (res) {
                 if(res.rtnCode != "0000000"){
                     alert(res.msg);
                 }
@@ -17,23 +22,30 @@ jboss
                 }
 
             }, function (err) {
-                alert(err);
+                alert("网络出错!");
             });
         }
 
 
-        //自动查询
-        var schoolId = $scope.$parent.fm.school.schoolId;
-        if(schoolId){
-            loadList(schoolId);
-        }
 
-        //监听父类变化
-        $scope.$parent.$watch("isMsgShow",function(res){
-            if($scope.$parent.fm.school){
-                loadList($scope.$parent.fm.school.schoolId);
-            }
+        var schoolId;
 
+        if(!$scope.fm.school)
+            schoolId = ""
+        else
+            choolId = $scope.fm.school.schoolId || "";
+
+
+        var areaId   = $scope.fm.areaId || "";
+
+        //接受来自audit的事件
+        $scope.$on("audit-child",function(event,data){
+            console.log("子id : ",data);
+            loadList(data);
         });
+
+        //默认load
+        loadList({schoolId:schoolId,areaId:areaId});
+
 
     });
