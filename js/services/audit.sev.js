@@ -81,6 +81,7 @@ jboss
                var defer = $q.defer();
                $http.get(SERVER.url.uc + "/school/audit",{
                    params : {
+                       userId : "",
                        businessId : id,
                        businessType : type,
                        status   : status

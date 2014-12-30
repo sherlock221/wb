@@ -36,8 +36,8 @@
             <td>{{res.area}}</td>
             <!--<td >{{res.status | status}}</td>-->
             <td >
-                <button class="btn btn-sm btn-success" ng-if="res.status == 0" ng-click="audit(res.schoolId,0,1);">通过</button>
-                <button class="btn btn-sm btn-default" disabled  ng-hide="res.status == 0">已审核</button>
+                <button class="btn btn-sm btn-success" ng-if="res.status == 0" ng-click="auditContent(res.schoolId,0,1);">审核</button>
+                <button class="btn btn-sm btn-default"   ng-click="auditContent(res.schoolId,0,0);" ng-hide="res.status == 0">撤销</button>
 
             </td>
         </tr>

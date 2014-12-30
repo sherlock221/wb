@@ -85,9 +85,17 @@ jboss
 
 
         //审核
-        $scope.audit = function (id, type,status) {
+        $scope.auditContent = function (id, type,status) {
             AuditService.audit(id, type,status).then(function (res) {
-                alert(res.msg);
+
+                if(res.rtnCode == "0000000"){
+                    //向子$scope 传递事件告诉可以刷新列表了
+                    $scope.$broadcast("audit-child", {areaId: $scope.fm.areaId, schoolId: school.schoolId});
+                }
+                else{
+                    alert(res.msg);
+                }
+
             }, function (err) {
                 alert("网络错误!");
             });
