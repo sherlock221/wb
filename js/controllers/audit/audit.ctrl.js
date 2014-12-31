@@ -90,7 +90,7 @@ jboss
 
                 if(res.rtnCode == "0000000"){
                     //向子$scope 传递事件告诉可以刷新列表了
-                    $scope.$broadcast("audit-child", {areaId: $scope.fm.areaId, schoolId: school.schoolId});
+                    $scope.$broadcast("audit-child", {areaId: $scope.fm.areaId, schoolId: $scope.fm.school == "" ?  "" : $scope.fm.school.schoolId});
                 }
                 else{
                     alert(res.msg);
