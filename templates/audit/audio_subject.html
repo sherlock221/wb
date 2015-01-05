@@ -39,8 +39,8 @@
         <td>{{res.schoolName}}</td>
         <td>{{res.subjectName}}</td>
         <td >
-            <button class="btn btn-sm btn-success" ng-if="res.status == 0" ng-click="audit(res.subjectId,3,1);">通过</button>
-            <button class="btn btn-sm btn-default" ng-click="audit(res.subjectId,3,0);"  ng-hide="res.status == 0">已审核</button>
+            <button class="btn btn-sm btn-success" ng-if="res.status == 0" ng-click="auditContent(res.subjectId,2,1);">通过</button>
+            <button class="btn btn-sm btn-default" ng-click="auditContent(res.subjectId,2,0);"  ng-hide="res.status == 0">撤销审核</button>
         </td>
 
     </tr>

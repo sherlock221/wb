@@ -27,7 +27,6 @@ jboss.config(function ($stateProvider, $urlRouterProvider) {
             controller: "HomeCtrl as home"
         })
 
-
         //audio 审核
         .state("home.audit",{
             url : "/audit",
@@ -85,6 +84,7 @@ jboss.config(function ($stateProvider, $urlRouterProvider) {
 //常量配置
 jboss.constant("SERVER", {
     url : {
+//        uc  : "http://172.16.130.197:8080/v1",
         uc  : "http://10.10.68.11:8080/v1",
 //        uc  : "./data",
         message : "",
