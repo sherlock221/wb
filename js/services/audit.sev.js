@@ -65,7 +65,12 @@ jboss
                        areaId: areaId,
                        schoolId : "",
                        status  : ""
-                   }
+
+                   },
+                   withCredentials: true
+//                   headers: {
+//                       'Content-Type': 'application/x-www-form-urlencoded'
+//                   }
                })
                    .success(function (res) {
                        defer.resolve(res);
