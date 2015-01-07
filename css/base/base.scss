@@ -13,10 +13,8 @@
 
 
 .content{
-
   padding-top: 100px;
   min-height: 1000px;
-
 }
 
 
@@ -29,6 +27,24 @@
   text-align: left !important;
 }
 
+.full-img{
+  width: 100%;
+  vertical-align: middle;
+  height: inherit;
+}
+
+
+/** bootstrap hack **/
+
+/** 去掉focus的边框 **/
+*:focus,*{outline: none;}
+//.form-control:focus{
+//  border-color : transparent;
+//  -webkit-box-shadow : none;
+//  box-shadow : none;
+//}
+
+
 .dropdown-menu{
   display: block;
   width: 100%;
@@ -36,3 +52,30 @@
   border-radius: 0;
   box-shadow : none;
 }
+
+.pager .next>button, .pager .next>span{
+  float: right;
+}
+.pager .previous>button, .pager .previous>span{
+  float: left;
+}
+
+.pager li>button, .pager li>span {
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  color: #428bca;
+  border-radius: 15px;
+}
+
+.pager li>button:disabled{
+  pointer-events: none;
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: inherit;
+  opacity: .65;
+}
+

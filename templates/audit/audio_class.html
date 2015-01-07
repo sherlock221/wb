@@ -44,3 +44,11 @@
         </tr>
     </tbody>
 </table>
+
+
+<nav ng-if="pageTotal > 1">
+    <ul class="pager">
+        <li class="previous"  ><button href="#" class="ib" ng-disabled="pageIndex <= 1"  ng-click="prev();" >&larr; 上一页</button></li>
+        <li class="next"    ><button href="#" ng-click="next();"  ng-disabled="pageIndex >= pageTotal">下一页 &rarr;</button></li>
+    </ul>
+</nav>

@@ -124,6 +124,11 @@ jboss.directive('selectAddress', function($http, $q, $compile,BaseService) {
                     scope.a = null;
 
                     scope.$parent.fm.areaId = -1;
+                    scope.$parent.fm.schoolId = "";
+                    scope.$parent.schools = [];
+
+                    popup.hide();
+
 
                     return scope.d = null;
                 };

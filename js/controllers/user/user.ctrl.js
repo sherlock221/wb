@@ -1,7 +1,6 @@
 jboss
 
-    .controller("TestCtrl", function ($rootScope,$scope,$window,$log,$q,$timeout,MessageService) {
-
+    .controller("UserCtrl", function ($rootScope,$scope,$window,$log,$q,$timeout,MessageService) {
 
 
 

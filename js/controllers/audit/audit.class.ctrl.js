@@ -1,6 +1,6 @@
 jboss
 
-    .controller("AuditClassCtrl", function ($rootScope,$scope, $window, $log, $q, $timeout, AuditService) {
+    .controller("AuditClassCtrl", function ($rootScope,$scope, $window, $log, $q, $timeout, AuditService,Util) {
 
         console.log("class..");
 
@@ -12,16 +12,20 @@ jboss
 
 
         //查询班级
-        var loadList = function (data) {
-            var schoolId = data.schoolId || "";
-            var  areaId = data.areaId || "";
+        var loadList = function (data,isFirst) {
 
-            AuditService.getUserClass(areaId,schoolId).then(function (res) {
+            AuditService.getUserClass(data).then(function (res) {
                 if(res.rtnCode != "0000000"){
                     alert(res.msg);
                 }
                 else{
-                    $scope.results = res.bizData;
+
+                    if(isFirst){
+                        $scope.pageTotal  = res.bizData.total;
+                        Util.caclTotal($scope);
+                        isFirst = false;
+                    }
+                    $scope.results = res.bizData.pageList;
                 }
 
             }, function (err) {
@@ -41,12 +45,37 @@ jboss
         //接受来自audit的事件
         $scope.$on("audit-child",function(event,data){
             console.log("子id : ",data);
-            loadList(data);
+            loadList(getParams(),data.isFirst);
         });
 
+        var getParams = function(){
+            return  {
+                areaId : $scope.$parent.fm.areaId,
+                schoolId : $scope.$parent.fm.schoolId,
+                pageIndex : $scope.pageIndex-1,
+                pageSize  :  $scope.pageSize,
+                status    :  ""
+            }
+        }
+
+        //分页
+        $scope.next = function(){
+            Util.calcPage($scope,"next");
+            var params = getParams();
+            loadList(params)
+        }
 
 
-        //默认load
-        loadList({schoolId:schoolId,areaId:areaId});
+
+        $scope.prev = function(){
+            Util.calcPage($scope,"prev");
+            var params = getParams();
+            loadList(params)
+        }
+
+
+        //默认数据
+        loadList(getParams(),true);
+
 
     });

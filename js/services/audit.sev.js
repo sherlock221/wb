@@ -8,18 +8,14 @@ jboss
        var Ajax = {
 
            //获得用户创建的班级
-           getUserClass: function (areaId,schoolId) {
+           getUserClass: function (data) {
                var defer = $q.defer();
 
-               areaId = areaId || "";
-               schoolId = schoolId || "";
+               data.areaId = data.areaId || "";
+               data.schoolId = data.schoolId || "";
 
                $http.get(SERVER.url.uc + "/school/getUserCustomClass", {
-                   params: {
-                       schoolId : schoolId,
-                       areaId  : areaId,
-                       status  : ""
-                   }
+                   params: data
                })
                    .success(function (result) {
                        defer.resolve(result);
@@ -34,16 +30,14 @@ jboss
 
 
            //获得用户创建的科目
-           getUserSubject: function (areaId,schoolId) {
-               areaId = areaId || "";
-               schoolId = schoolId || "";
+           getUserSubject: function (data) {
+               data.areaId = data.areaId || "";
+               data.schoolId = data.schoolId || "";
+
                var defer = $q.defer();
                $http.get(SERVER.url.uc + "/school/getUserCustomSubject",{
-                   params: {
-                       schoolId : schoolId,
-                       areaId  : areaId,
-                       status  : ""
-                   }
+                   params: data
+
                })
                    .success(function (result) {
                        defer.resolve(result);

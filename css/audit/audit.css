@@ -1,5 +1,6 @@
 .auditPanel {
-  padding: 30px 40px; }
+  padding: 30px 40px;
+  min-height: 300px; }
   .auditPanel .showMsg h5 {
     margin-right: 10px; }
 

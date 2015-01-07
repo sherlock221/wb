@@ -66,12 +66,12 @@ jboss.config(function ($stateProvider, $urlRouterProvider) {
 
 
         //测试部分
-        .state("home.test", {
-            url: "/test",
+        .state("home.user", {
+            url: "/user",
             views : {
                 'content':{
-                    templateUrl: "templates/test/removeUser.html",
-                    controller: "TestCtrl as test"
+                    templateUrl: "templates/user/userManager.html",
+                    controller: "UserCtrl as test"
                 }
             }
         })
@@ -93,7 +93,7 @@ jboss.config(function($httpProvider){
 //常量配置
 jboss.constant("SERVER", {
     url : {
-        uc  : "http://127.0.0.1:8080/v1",
+        uc  : "http://172.16.130.192:8080/v1",
 //        uc  : "http://10.10.68.11:8080/v1",
 //        uc  : "http://imzhiliao.com:10012/v1",
 //        message : "http://imzhiliao.com:10011/v1",

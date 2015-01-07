@@ -4,7 +4,6 @@ jboss
 
         console.log("school...")
 
-
         $scope.$parent.isSchool = true;
 
         //显示tab
@@ -37,7 +36,6 @@ jboss
         //接受来自audit的事件
         $scope.$on("audit-child",function(event,data){
             console.log("子id : ",data);
-
             //默认数据
             loadList(getParams(),data.isFirst);
         });
@@ -60,7 +58,7 @@ jboss
            return  {
                 areaId : $scope.$parent.fm.areaId,
                 schoolId : $scope.$parent.fm.schoolId,
-                pageIndex : ($scope.pageIndex -1) * $scope.pageSize,
+                pageIndex : $scope.pageIndex-1,
                 pageSize  :  $scope.pageSize,
                 status    :  ""
             }
@@ -68,5 +66,5 @@ jboss
 
 
         //默认数据
-       // loadList(getParams(),true);
+       loadList(getParams(),true);
     });

@@ -9,5 +9,16 @@ jboss
                return "已审核";
            }
         };
+    })
 
-    });
+.filter("userType",function(){
+    return function(userType) {
+        if(userType == 0){
+            return "老师";
+        }
+        else{
+            return "家长";
+        }
+    };
+
+});

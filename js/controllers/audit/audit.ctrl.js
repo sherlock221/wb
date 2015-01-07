@@ -7,7 +7,8 @@ jboss
         $scope.fm = {
             areaId: "",
             address: "",
-            school: ""
+            school: "",
+            schoolId : ""
 
         }
 
@@ -38,15 +39,22 @@ jboss
                 if (areaId == "-1") {
                     areaId = "";
                 }
-                //向子$scope 传递事件告诉可以刷新列表了
+                //向子$scope 传递事件告可以刷新列表了
                 $scope.$broadcast("audit-child", {areaId: areaId, schoolId: $scope.fm.school.schoolId});
-
 
                 //非学校加载
                 if (!$scope.isSchool) {
                     //加载学校列表
-                    AuditService.getSchool(areaId).then(function (res) {
-                        $scope.schools = res.bizData;
+                    AuditService.getSchool(
+                        {
+                            areaId : areaId,
+                            schoolId : "",
+                            status    :  "",
+                            pageIndex : -1,
+                            pageSize  : -1
+                        }
+                    ).then(function (res) {
+                        $scope.schools = res.bizData.pageList;
                     }, function (err) {
 
                     });
@@ -55,21 +63,24 @@ jboss
             }
             else {
                 $scope.showSecond = false;
+
             }
         });
+
 
 
         //学校筛选
         $scope.$watch('fm.school', function (school) {
 
             if (school) {
+                $scope.fm.schoolId = school.schoolId
                 //向子$scope 传递事件告诉可以刷新列表了
-                $scope.$broadcast("audit-child", {areaId: $scope.fm.areaId, schoolId: school.schoolId});
+                $scope.$broadcast("audit-child",{});
             }
             else {
-                $scope.$broadcast("audit-child", {areaId: $scope.fm.areaId, schoolId: "",isFirst:true});
+                $scope.fm.schoolId = "";
+                $scope.$broadcast("audit-child",{});
             }
-
         });
 
 
@@ -78,14 +89,13 @@ jboss
             $scope.isMsgShow = false;
         }
 
-
         //显示学校
         $scope.showSchool = function () {
             $scope.isMsgShow = true;
 
         }
 
-
+        //选择省
         $scope.selectProvice = function ($item, $model, $label) {
             console.log($item);
         }
@@ -106,6 +116,7 @@ jboss
                 alert("网络错误!");
             });
         }
+
 
 
     });
