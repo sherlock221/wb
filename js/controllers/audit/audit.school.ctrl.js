@@ -37,7 +37,9 @@ jboss
         //接受来自audit的事件
         $scope.$on("audit-child",function(event,data){
             console.log("子id : ",data);
-            loadList(data);
+
+            //默认数据
+            loadList(getParams(),data.isFirst);
         });
 
         //分页
@@ -53,18 +55,19 @@ jboss
             loadList(params)
         }
 
+
+
         var getParams = function(){
            return  {
                 areaId : $scope.$parent.fm.areaId,
                 schoolId : $scope.$parent.fm.schoolId,
                 pageIndex : ($scope.pageIndex -1) * $scope.pageSize,
-                pageSize  :  $scope.pageSize
+                pageSize  :  $scope.pageSize,
+                status    :  ""
             }
-
-
         }
 
 
         //默认数据
-        loadList(getParams(),true);
+       // loadList(getParams(),true);
     });

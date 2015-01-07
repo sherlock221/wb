@@ -67,7 +67,7 @@ jboss
                 $scope.$broadcast("audit-child", {areaId: $scope.fm.areaId, schoolId: school.schoolId});
             }
             else {
-                $scope.$broadcast("audit-child", {areaId: $scope.fm.areaId, schoolId: ""});
+                $scope.$broadcast("audit-child", {areaId: $scope.fm.areaId, schoolId: "",isFirst:true});
             }
 
         });
