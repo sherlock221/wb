@@ -1,6 +1,6 @@
 jboss
 
-    .controller("AuditCtrl", function ($rootScope, $scope, $state, $window, $log, $q, $timeout, AuditService) {
+    .controller("AuditCtrl", function ($rootScope, $scope, $state, $window, $log, $q, $timeout, AuditService,Util) {
 
 
         //表单数据
@@ -8,7 +8,13 @@ jboss
             areaId: "",
             address: "",
             school: ""
+
         }
+
+        //分页数据
+        $scope.pageIndex = 1;
+        $scope.pageSize = 2;
+
 
         //是否显示新信息
         $scope.isMsgShow = false;
@@ -79,10 +85,10 @@ jboss
 
         }
 
+
         $scope.selectProvice = function ($item, $model, $label) {
             console.log($item);
         }
-
 
         //审核
         $scope.auditContent = function (id, type,status) {

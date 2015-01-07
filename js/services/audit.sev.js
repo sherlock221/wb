@@ -57,20 +57,13 @@ jboss
                return defer.promise;
            },
            //获得学校
-           getSchool: function (areaId) {
-               areaId = areaId || "";
+           getSchool: function (data) {
+               data.areaId = data.areaId || "";
+               data.schoolId = data.schoolId || "";
+
                var defer = $q.defer();
                $http.get(SERVER.url.uc+"/school/getUserCustomSchool", {
-                   params: {
-                       areaId: areaId,
-                       schoolId : "",
-                       status  : ""
-
-                   },
-                   withCredentials: true
-//                   headers: {
-//                       'Content-Type': 'application/x-www-form-urlencoded'
-//                   }
+                   params: data
                })
                    .success(function (res) {
                        defer.resolve(res);

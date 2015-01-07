@@ -85,7 +85,7 @@ jboss.config(function ($stateProvider, $urlRouterProvider) {
 //配置http 拦截器
 jboss.config(function($httpProvider){
     //设置跨域
-    $httpProvider.defaults.withCredentials = true;
+   // $httpProvider.defaults.withCredentials = true;
 
 });
 
@@ -93,10 +93,11 @@ jboss.config(function($httpProvider){
 //常量配置
 jboss.constant("SERVER", {
     url : {
-        uc  : "http://172.16.130.197:8080/v1",
+        uc  : "http://172.16.130.197:8088/v1",
 //        uc  : "http://10.10.68.11:8080/v1",
-//        uc  : "./data",
-        message : "",
+//        uc  : "http://imzhiliao.com:10012/v1",
+//        message : "http://imzhiliao.com:10011/v1",
+        message : "http://172.16.130.197:8088/v1",
         boss  : ""
     }
 

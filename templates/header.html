@@ -10,14 +10,27 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">JBoss</a>
+                <a class="navbar-brand" href="#">Boss</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="#/home/test">测试</a></li>
-                    <li><a href="#/home/audit/school">审核内容</a></li>
-                    <li><a href="#">权限管理</a></li>
+
+                    <li class="dropdown" ng-init="show=false;"  ng-mouseenter="show=true;"  ng-mouseleave="show=false;">
+                        <a href="#" class="dropdown-toggle"  data-toggle="dropdown">基础资源管理 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu"  ng-show="show">
+                            <li><a href="#/home/test">用户管理</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown" ng-init="cd=false;"  ng-mouseenter="cd=true;"  ng-mouseleave="cd=false;">
+                        <a href="#" class="dropdown-toggle"   data-toggle="dropdown">工单管理 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu"  ng-show="cd">
+                            <li><a href="#/home/audit/school">审核内容</a></li>
+                        </ul>
+                    </li>
+
+
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>

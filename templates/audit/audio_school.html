@@ -43,3 +43,10 @@
         </tr>
     </tbody>
 </table>
+
+<nav ng-if="pageTotal > 1">
+    <ul class="pager">
+        <li class="previous" ng-click="prev();"><a href="#" >&larr; 上一页</a></li>
+        <li class="next" ng-click="next();"><a href="#">下一页 &rarr;</a></li>
+    </ul>
+</nav>
