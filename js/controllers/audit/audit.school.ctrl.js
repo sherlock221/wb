@@ -20,12 +20,12 @@ jboss
                     alert(res.msg);
                 }
                 else{
-
                     if(isFirst){
+                        $scope.pageTotal  = res.bizData.total;
                         Util.caclTotal($scope);
                         isFirst = false;
                     }
-                    $scope.results = res.bizData;
+                    $scope.results = res.bizData.pageList;
                 }
 
             }, function (err) {
@@ -54,7 +54,6 @@ jboss
             var params = getParams();
             loadList(params)
         }
-
 
 
         var getParams = function(){
