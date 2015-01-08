@@ -12,8 +12,18 @@ jboss
     })
 
 .filter("userType",function(){
-    return function(userType) {
-        if(userType == 0){
+    return function(res) {
+
+        if(!res){
+            return "";
+        }
+
+        //老师
+        if(res.teacherInfo.length > 0 &&  res.childInfo.length > 0){
+            return "家长&老师";
+        }
+
+        else if(res.teacherInfo.length > 0 ){
             return "老师";
         }
         else{

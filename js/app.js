@@ -94,10 +94,11 @@ jboss.config(function($httpProvider){
 jboss.constant("SERVER", {
     url : {
         uc  : "http://172.16.130.192:8080/v1",
+//        uc  : "/wb/data",
 //        uc  : "http://10.10.68.11:8080/v1",
 //        uc  : "http://imzhiliao.com:10012/v1",
-//        message : "http://imzhiliao.com:10011/v1",
-        message : "http://172.16.130.197:8088/v1",
+        message : "http://imzhiliao.com:10011/v1",
+//        message : "http://172.16.130.197:8088/v1",
         boss  : ""
     }
 

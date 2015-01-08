@@ -55,6 +55,7 @@ jboss
                data.areaId = data.areaId || "";
                data.schoolId = data.schoolId || "";
 
+
                var defer = $q.defer();
                $http.get(SERVER.url.uc+"/school/getUserCustomSchool", {
                    params: data

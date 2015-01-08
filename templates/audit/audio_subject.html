@@ -23,6 +23,11 @@
         <th>
             科目
         </th>
+
+        <th>
+            最后修改时间
+        </th>
+
         <th>
             审核内容
         </th>
@@ -38,6 +43,7 @@
         <td>{{res.className}}</td>
         <td>{{res.schoolName}}</td>
         <td>{{res.subjectName}}</td>
+        <td>{{res.lastModDate | date:"yyyy-MM-dd hh:mm:ss" }}</td>
         <td >
             <button class="btn btn-sm btn-success" ng-if="res.status == 0" ng-click="auditContent(res.subjectId,2,1);">通过</button>
             <button class="btn btn-sm btn-default" ng-click="auditContent(res.subjectId,2,0);"  ng-hide="res.status == 0">撤销审核</button>

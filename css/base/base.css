@@ -87,4 +87,15 @@
   color: inherit;
   opacity: .65; }
 
+/** loading **/
+.glyphicon-refresh {
+  -webkit-animation: spin 1s  linear both  infinite;
+  animation: spin 1s  linear both  infinite;
+  display: none; }
+  .glyphicon-refresh.refresh {
+    display: inline-block; }
+
+.btn-short {
+  width: 70px; }
+
 /*# sourceMappingURL=base.css.map */

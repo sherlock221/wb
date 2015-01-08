@@ -20,21 +20,31 @@
             <th>
                 地区名称
             </th>
+
+            <th>
+                最后修改时间
+            </th>
+
             <th>
                 审核内容
             </th>
+
 
         </tr>
     </thead>
 
     <tbody>
         <tr ng-repeat="res in results" ng-click="selectSchool(res);">
+
             <td>{{res.schoolId}}</td>
             <td>{{res.phone}}</td>
+
             <td>{{res.userName}}</td>
             <td>{{res.schoolName}}</td>
             <td>{{res.area}}</td>
+            <td>{{res.lastModDate | date:"yyyy-MM-dd hh:mm:ss" }}</td>
             <!--<td >{{res.status | status}}</td>-->
+
             <td >
                 <button class="btn btn-sm btn-success" ng-if="res.status == 0" ng-click="auditContent(res.schoolId,0,1);">审核</button>
                 <button class="btn btn-sm btn-default"   ng-click="auditContent(res.schoolId,0,0);" ng-hide="res.status == 0">撤销审核</button>
