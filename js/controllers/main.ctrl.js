@@ -9,11 +9,11 @@ jboss
 
 
 
-//        //窗口变化
-//        $window.onResizeFunction = function(){
-//            $scope.style= {height:'100px'};
-//          console.log("resize..." + $scope.style.height);
-//        };
+        //窗口变化
+        $window.onResizeFunction = function(){
+            $scope.style= {height:'100px'};
+          console.log("resize..." + $scope.style.height);
+        };
 
 
         $scope.goFeedBack = function(){
