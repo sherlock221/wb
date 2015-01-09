@@ -14,4 +14,9 @@ jboss
 //            $scope.style= {height:'100px'};
 //          console.log("resize..." + $scope.style.height);
 //        };
+
+
+        $scope.goFeedBack = function(){
+            $window.open("http://115.29.184.78:9001/v1/feedback/view/feedback.html");
+        }
     });

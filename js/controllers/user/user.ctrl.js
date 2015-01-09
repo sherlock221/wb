@@ -25,7 +25,9 @@ jboss
             $scope.form.submit = true;
             var phone = $scope.form.phone.trim();
 
-            var ques=window.confirm("确实要删除此用户吗？")
+            var ques=window.confirm("确实要删除此  "+$scope.form.phone+" 吗？")
+
+
             if(ques){
 
                 UserService.deletePhone(phone).then(function(result){

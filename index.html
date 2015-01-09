@@ -45,44 +45,44 @@
     <script type="text/javascript" src="js/app.js"></script>
 
     <!-- controller -->
-    <script type="text/javascript" src="js/controllers/footer.ctrl.js"></script>
-    <script type="text/javascript" src="js/controllers/main.ctrl.js"></script>
-    <script type="text/javascript" src="js/controllers/home.ctrl.js"></script>
-    <script type="text/javascript" src="js/controllers/user/user.ctrl.js"></script>
+    <script type="text/javascript" src="js/controllers/footer.ctrl.js?v=1"></script>
+    <script type="text/javascript" src="js/controllers/main.ctrl.js?v=1"></script>
+    <script type="text/javascript" src="js/controllers/home.ctrl.js?v=1"></script>
+    <script type="text/javascript" src="js/controllers/user/user.ctrl.js?v=1"></script>
 
-    <script type="text/javascript" src="js/controllers/tab.ctrl.js"></script>
+    <script type="text/javascript" src="js/controllers/tab.ctrl.js?v=1"></script>
 
-    <script type="text/javascript" src="js/controllers/audit/audit.ctrl.js"></script>
-    <script type="text/javascript" src="js/controllers/audit/audit.class.ctrl.js"></script>
-    <script type="text/javascript" src="js/controllers/audit/audit.school.ctrl.js"></script>
-    <script type="text/javascript" src="js/controllers/audit/audit.sub.ctrl.js"></script>
+    <script type="text/javascript" src="js/controllers/audit/audit.ctrl.js?v=1"></script>
+    <script type="text/javascript" src="js/controllers/audit/audit.class.ctrl.js?v=1"></script>
+    <script type="text/javascript" src="js/controllers/audit/audit.school.ctrl.js?v=1"></script>
+    <script type="text/javascript" src="js/controllers/audit/audit.sub.ctrl.js?v=1"></script>
 
 
     <!-- audit -->
-    <link rel="stylesheet" href="css/audit/audit.css" />
-    <link rel="stylesheet" href="css/user/user.css" />
+    <link rel="stylesheet" href="css/audit/audit.css?v=1" />
+    <link rel="stylesheet" href="css/user/user.css?v=1" />
 
     <!-- service -->
-    <script type="text/javascript" src="js/services/base.sev.js"></script>
-    <script type="text/javascript" src="js/services/user.sev.js"></script>
-    <script type="text/javascript" src="js/services/audit.sev.js"></script>
-    <script type="text/javascript" src="js/services/util.sev.js"></script>
+    <script type="text/javascript" src="js/services/base.sev.js?v=1"></script>
+    <script type="text/javascript" src="js/services/user.sev.js?v=1"></script>
+    <script type="text/javascript" src="js/services/audit.sev.js?v=1"></script>
+    <script type="text/javascript" src="js/services/util.sev.js?v=1"></script>
 
     <!-- directives -->
-    <script type="text/javascript" src="js/directives/directives.js"></script>
-    <script type="text/javascript" src="js/directives/address/address.dv.js"></script>
+    <script type="text/javascript" src="js/directives/directives.js?v=1"></script>
+    <script type="text/javascript" src="js/directives/address/address.dv.js?v=1"></script>
 
     <!-- filter -->
-    <script type="text/javascript" src="js/filters/filters.js"></script>
+    <script type="text/javascript" src="js/filters/filters.js?v=1"></script>
 
 
 </head>
-<body ng-app="jboss" >
+<body ng-app="jboss" ng-controller="MainCtrl">
 
         <!-- header -->
         <ng-include src="'templates/header.html'" ></ng-include>
 
-        <div class="content" ui-view  ng-controller="MainCtrl"></div>
+        <div class="content" ui-view  ></div>
         <!-- footer -->
         <ng-include src="'templates/footer.html'" ></ng-include>
 

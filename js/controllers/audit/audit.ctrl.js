@@ -14,7 +14,7 @@ jboss
 
         //分页数据
         $scope.pageIndex = 1;
-        $scope.pageSize = 2;
+        $scope.pageSize = 8;
 
 
         //是否显示新信息
