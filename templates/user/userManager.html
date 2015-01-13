@@ -99,7 +99,7 @@
 
                     <!-- 用户加入的班级信息 -->
                     <section ng-init="isCollapsedClass=true;">
-                        <button class="btn btn-success"  ng-disabled="res.classInfo.length <= 0"  ng-click="isCollapsedClass = !isCollapsedClass">加入的班级&nbsp;&nbsp;<span class="badge">{{res.classInfo.length}}</span></button>
+                        <button class="btn btn-success"  ng-disabled="res.classInfo.length <= 0"  ng-click="isCollapsedClass = !isCollapsedClass">孩子班级&nbsp;&nbsp;<span class="badge">{{res.classInfo.length}}</span></button>
                         <hr>
                         <div collapse="isCollapsedClass">
                             <table class="table table-hover ">
@@ -149,7 +149,6 @@
                         <button class="btn btn-info" ng-click="isCollapsedTeacher = !isCollapsedTeacher">授课班级&nbsp;&nbsp;<span class="badge">{{res.teacherInfo.length}}</span></button>
                         <hr>
                         <div collapse="isCollapsedTeacher">
-
                             <table class="table table-hover ">
                                 <thead>
                                 <tr>
@@ -182,9 +181,6 @@
                                 </tr>
                                 </tbody>
                             </table>
-
-
-
                         </div>
                     </section>
 
